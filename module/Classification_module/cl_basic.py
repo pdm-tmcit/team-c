@@ -6,22 +6,8 @@ from module.utils import split_words
 
 TAG = {1:"Coming_out",2:"Divined_inquested",3:"Guard",4:"Vote",5:"Estimate",6:"Agree",7:"Disagree",8:"Opinion",9:"Information",10:"Question",11:"Ans",12:"Request",13:"None"}
 BODER = 0.7
-def classification(data):
-  result = {
-    1:random.random(),
-    2:random.random(),
-    3:random.random(),
-    4:random.random(),
-    5:random.random(),
-    6:random.random(),
-    7:random.random(),
-    8:random.random(),
-    9:random.random(),
-    10:random.random(),
-    11:random.random(),
-    12:random.random(),
-    13:random.random(),
-  }
+def classification(data):,
+  result = init_weight * np.random.randn(input_layer_size, hidden_layer_size)
   return result
 
 def cl_basic(data):

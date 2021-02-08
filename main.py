@@ -1,6 +1,7 @@
 import module.utils as utils
 from module.classification import classification
 from module.generate_sentence import generation_sentence
+from module.weightcalc import *
 from pprint import pprint
 
 def debug(data):
@@ -10,6 +11,7 @@ def debug(data):
       continue
     label = classification(parsed_text)
     sentence = generation_sentence(label)
+    wight = WeightCalc(label)
     print("text : " + row)
     print("label : ")
     pprint(label)
@@ -20,6 +22,7 @@ def debug(data):
 def main():
   file = input('file>')
   data = utils.open_csv(file)
+  init = InitDatabaseTable(utils.getusers)
   debug(data)
 
 if __name__ == "__main__":
