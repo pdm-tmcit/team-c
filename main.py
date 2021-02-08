@@ -11,11 +11,12 @@ def debug(data):
       continue
     label = classification(parsed_text)
     sentence = generation_sentence(label)
-    wight = WeightCalc(label)
+    weight = WeightCalc(label)
     print("text : " + row)
     print("label : ")
     pprint(label)
     print("Suggestion : " + sentence)
+    utils.printweight(weight)
     input('next.....')
     print("========================================")
 
