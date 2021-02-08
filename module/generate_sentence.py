@@ -19,11 +19,9 @@ def init():
   with open(conversation_path,encoding='utf8') as f:
     conversation = f.read().split(',')
   return slang,conversation
-'''
 connection = psycopg2.connect("host= port= dbname= user= password=")
 cur =  connection.cursor()
 cur.execute("use databases")
-'''
 
 #ラベル付け
 
@@ -31,18 +29,13 @@ def generation_sentence(label):
   slang,conversation = init()
   sentence = ""
   if label["basic_classification"][0] == 'Coming_out':
-    #co
-    '''
+
     cur.execute("select jobs from self where username='bot'")
-    myself = cur.fetchall()
-    '''
+
     sentence = template_co % (myself[0])  #CO
   elif label["basic_classification"][0] == 'Opinion':
-    #opinion
-    '''
     cur.execute("select username from wolf orderby prob desc")
     wolf = cur.fetchall()
-    '''
     sentence = template_opinion % (wolf[0],myself[0])
   elif label["basic_classification"][0] == 'Estimate':
     sentence = "その推測は正しいと思います"
